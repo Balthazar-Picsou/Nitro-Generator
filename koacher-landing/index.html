@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KOACHER — Réserve ta séance de sport en 30 secondes</title>
+<meta name="description" content="Métro. Boulot. Koacher. Un coach certifié, près de chez toi, au créneau qui t'arrange. Première séance à 19 € — sans engagement.">
+<meta property="og:title" content="MÉTRO. BOULOT. KOACHER.">
+<meta property="og:description" content="Cet homme n'est pas en retard au travail. Il va juste faire sa séance de sport. Réserve la tienne en 30 secondes.">
+<meta property="og:image" content="assets/media/og-image.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="preload" href="assets/fonts/anton-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/koacher.css">
+</head>
+<body data-pixel-id="" data-booking-endpoint="">
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="top">
+  <div class="wrap nav__inner">
+    <a class="logo" href="#top" aria-label="Koacher — accueil">
+      <svg class="logo__mark" viewBox="0 0 48 32" aria-hidden="true" focusable="false">
+        <path d="M13 6h14l-6 6h10l-9 8h8L18 30l4-10h-9l5-7H9z"/>
+        <path d="M0 13h11l-2 3H0zM2 19h9l-2 3H2z" opacity=".55"/>
+      </svg>
+      <span class="logo__word">KOACHER</span>
+    </a>
+    <nav class="nav__links" aria-label="Navigation principale">
+      <a href="#methode">Comment ça marche</a>
+      <a href="#coachs">Coachs</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#campagne">La campagne</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#reserver" class="btn btn--accent btn--sm nav__cta" data-track="cta_nav">Réserver ma séance</a>
+    <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav__mobile" id="mobile-menu" hidden>
+    <a href="#methode">Comment ça marche</a>
+    <a href="#coachs">Coachs</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#campagne">La campagne</a>
+    <a href="#faq">FAQ</a>
+    <a href="#reserver" class="btn btn--accent" data-track="cta_nav_mobile">Réserver ma séance</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="reserver">
+  <video class="hero__video" autoplay muted loop playsinline preload="metadata"
+         poster="assets/media/ad-poster.jpg" aria-hidden="true" tabindex="-1">
+    <source src="assets/media/koacher-ad.mp4" type="video/mp4">
+  </video>
+  <div class="hero__scrim"></div>
+
+  <div class="wrap hero__inner">
+    <div class="hero__copy">
+      <p class="eyebrow"><span class="dot"></span> Coaching sportif à la demande — Lyon &amp; agglo</p>
+      <h1 class="display hero__title">
+        <span>Métro.</span>
+        <span>Boulot.</span>
+        <span class="accent">Koacher.</span>
+      </h1>
+      <p class="hero__lead">
+        Cet homme n'est pas en retard au travail. Il va juste faire sa séance de sport.
+        <strong>Réserve la tienne en 30 secondes</strong> — un coach certifié, au créneau qui t'arrange.
+      </p>
+      <ul class="hero__chips">
+        <li>1<sup>re</sup> séance à 19 €</li>
+        <li>Sans engagement</li>
+        <li>Annulation gratuite 4 h avant</li>
+      </ul>
+    </div>
+
+    <!-- Booking widget -->
+    <div class="booking" id="booking">
+      <div class="booking__head">
+        <h2 class="booking__title">Trouve ton créneau</h2>
+        <p class="booking__sub">Plus de 140 coachs disponibles cette semaine</p>
+      </div>
+      <form class="booking__form" id="booking-form" novalidate>
+        <label class="field">
+          <span class="field__label">Discipline</span>
+          <select name="sport" required>
+            <option value="">Choisis ton sport</option>
+            <option>Renforcement / Muscu</option>
+            <option>Running &amp; endurance</option>
+            <option>Boxe</option>
+            <option>HIIT / Cardio</option>
+            <option>Yoga &amp; mobilité</option>
+            <option>Préparation physique</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="field__label">Ville / quartier</span>
+          <input type="text" name="ville" placeholder="Lyon 3e, Villeurbanne…" required>
+        </label>
+        <label class="field">
+          <span class="field__label">Ton moment</span>
+          <select name="creneau" required>
+            <option value="">Quand tu peux</option>
+            <option>Avant le boulot — 6 h / 9 h</option>
+            <option>Pause déj — 12 h / 14 h</option>
+            <option>Après le boulot — 18 h / 21 h</option>
+            <option>Week-end</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="field__label">Email</span>
+          <input type="email" name="email" placeholder="toi@email.com" required>
+        </label>
+        <button class="btn btn--accent btn--block" type="submit" data-track="cta_booking">
+          Voir les créneaux dispo →
+        </button>
+        <p class="booking__legal">Gratuit, sans carte bancaire. Tu confirmes après avoir vu les créneaux.</p>
+        <p class="booking__success" role="status" hidden>
+          ✓ C'est noté. On t'envoie les créneaux correspondants par email dans la minute.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <a class="hero__scroll" href="#preuve" aria-label="Faire défiler">↓</a>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Métro. Boulot. Koacher. •</span><span>45 min chrono •</span><span>Métro. Boulot. Koacher. •</span><span>Zéro excuse •</span>
+    <span>Métro. Boulot. Koacher. •</span><span>45 min chrono •</span><span>Métro. Boulot. Koacher. •</span><span>Zéro excuse •</span>
+  </div>
+</div>
+
+<!-- ============ PREUVE / STATS ============ -->
+<section class="stats" id="preuve">
+  <div class="wrap stats__grid">
+    <div class="stat"><span class="stat__n" data-count="12480">0</span><span class="stat__l">séances réservées</span></div>
+    <div class="stat"><span class="stat__n">4,9<small>/5</small></span><span class="stat__l">note moyenne coach</span></div>
+    <div class="stat"><span class="stat__n" data-count="140">0</span><span class="stat__l">coachs certifiés</span></div>
+    <div class="stat"><span class="stat__n" data-count="92" data-suffix="%">0</span><span class="stat__l">réservent une 2<sup>e</sup> séance</span></div>
+  </div>
+</section>
+
+<!-- ============ OBJECTIONS ============ -->
+<section class="section section--dark" id="objections">
+  <div class="wrap">
+    <p class="kicker">Les 3 excuses</p>
+    <h2 class="display section__title">On les a toutes entendues.<br><span class="accent">On les a toutes réglées.</span></h2>
+    <div class="cards cards--3">
+      <article class="card">
+        <p class="card__quote">« J'ai pas le temps. »</p>
+        <h3 class="card__title">45 minutes, montre en main</h3>
+        <p class="card__text">Des créneaux de 6 h à 22 h, 7 j/7. Avant le bureau, sur la pause déj, ou en sortant. Le coach est là quand toi tu peux.</p>
+      </article>
+      <article class="card">
+        <p class="card__quote">« J'ai pas la motivation. »</p>
+        <h3 class="card__title">Quelqu'un t'attend</h3>
+        <p class="card__text">Un rendez-vous avec un humain, pas un abonnement qui dort. 92 % des personnes qui réservent une séance en réservent une deuxième.</p>
+      </article>
+      <article class="card">
+        <p class="card__quote">« J'ai pas de salle. »</p>
+        <h3 class="card__title">Le terrain, c'est ta ville</h3>
+        <p class="card__text">Parc, quai, salle partenaire, ou directement chez toi. Le coach apporte le matériel. Toi, tu apportes tes baskets.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MÉTHODE ============ -->
+<section class="section" id="methode">
+  <div class="wrap">
+    <p class="kicker">Comment ça marche</p>
+    <h2 class="display section__title">Trois étapes. Zéro friction.</h2>
+    <ol class="steps">
+      <li class="step">
+        <span class="step__n">01</span>
+        <h3 class="step__title">Tu dis ce que tu veux</h3>
+        <p>Discipline, quartier, moment de la journée. Quatre champs, trente secondes.</p>
+      </li>
+      <li class="step">
+        <span class="step__n">02</span>
+        <h3 class="step__title">On te propose 3 coachs</h3>
+        <p>Profils vérifiés, diplômes contrôlés, avis réels. Tu choisis celui dont la tête te revient.</p>
+      </li>
+      <li class="step">
+        <span class="step__n">03</span>
+        <h3 class="step__title">Tu enfiles tes baskets</h3>
+        <p>Rendez-vous confirmé par SMS. Paiement après la séance. Annulation libre jusqu'à 4 h avant.</p>
+      </li>
+    </ol>
+    <div class="section__cta">
+      <a href="#reserver" class="btn btn--accent" data-track="cta_methode">Réserver ma 1<sup>re</sup> séance — 19 €</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DISCIPLINES ============ -->
+<section class="section section--dark" id="disciplines">
+  <div class="wrap">
+    <p class="kicker">Disciplines</p>
+    <h2 class="display section__title">Choisis ton terrain de jeu.</h2>
+    <ul class="disciplines">
+      <li><span>Renforcement</span><em>Force &amp; posture</em></li>
+      <li><span>Running</span><em>Du 5 km au marathon</em></li>
+      <li><span>Boxe</span><em>Technique &amp; cardio</em></li>
+      <li><span>HIIT</span><em>30 min, rien que du gras</em></li>
+      <li><span>Yoga</span><em>Mobilité &amp; dos</em></li>
+      <li><span>Prépa physique</span><em>Objectif compétition</em></li>
+      <li><span>Natation</span><em>Technique en bassin</em></li>
+      <li><span>Remise en forme</span><em>Reprise en douceur</em></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ COACHS ============ -->
+<section class="section" id="coachs">
+  <div class="wrap">
+    <p class="kicker">Les coachs</p>
+    <h2 class="display section__title">Des pros. Pas des influenceurs.</h2>
+    <p class="section__lead">Diplôme vérifié, assurance à jour, casier contrôlé. On refuse 7 candidatures sur 10.</p>
+    <div class="cards cards--3">
+      <article class="coach">
+        <div class="coach__photo" data-initials="SA" aria-hidden="true"></div>
+        <h3 class="coach__name">Sarah A.</h3>
+        <p class="coach__meta">Renforcement &amp; posture · Lyon 3<sup>e</sup></p>
+        <p class="coach__text">« Le corps ne demande pas deux heures. Il demande de la régularité. »</p>
+        <p class="coach__note">★ 4,9 <small>· 310 séances</small></p>
+      </article>
+      <article class="coach">
+        <div class="coach__photo" data-initials="MK" aria-hidden="true"></div>
+        <h3 class="coach__name">Mehdi K.</h3>
+        <p class="coach__meta">Boxe &amp; HIIT · Villeurbanne</p>
+        <p class="coach__text">« Tu arrives énervé par ta journée, tu repars vidé et calme. »</p>
+        <p class="coach__note">★ 5,0 <small>· 188 séances</small></p>
+      </article>
+      <article class="coach">
+        <div class="coach__photo" data-initials="TL" aria-hidden="true"></div>
+        <h3 class="coach__name">Thomas L.</h3>
+        <p class="coach__meta">Running &amp; endurance · Lyon 6<sup>e</sup></p>
+        <p class="coach__text">« On court à ton rythme. Le chrono, on en parle plus tard. »</p>
+        <p class="coach__note">★ 4,8 <small>· 425 séances</small></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TÉMOIGNAGES ============ -->
+<section class="section section--paper" id="avis">
+  <div class="wrap">
+    <p class="kicker kicker--ink">Ils ont arrêté de repousser</p>
+    <h2 class="display section__title">« J'ai réservé pendant la pub. »</h2>
+    <div class="cards cards--3">
+      <blockquote class="quote">
+        <p>J'ai vu le Reel dans le métro, j'ai réservé avant d'arriver au bureau. Première séance le lendemain à 7 h. Ça fait quatre mois.</p>
+        <footer><strong>Julien, 34 ans</strong> — Lyon 7<sup>e</sup></footer>
+      </blockquote>
+      <blockquote class="quote">
+        <p>Trois salles de sport payées, jamais utilisées. Là, quelqu'un m'attend en bas de chez moi. Je ne me défile plus.</p>
+        <footer><strong>Naïma, 29 ans</strong> — Villeurbanne</footer>
+      </blockquote>
+      <blockquote class="quote">
+        <p>45 minutes sur ma pause déj, douche au bureau, et ma journée est sauvée. Le meilleur investissement de mon agenda.</p>
+        <footer><strong>Pierre, 41 ans</strong> — Part-Dieu</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TARIFS ============ -->
+<section class="section section--paper section--tight" id="tarifs">
+  <div class="wrap">
+    <p class="kicker kicker--ink">Tarifs</p>
+    <h2 class="display section__title">Tu paies des séances. Pas un abonnement fantôme.</h2>
+    <div class="cards cards--3 pricing">
+      <article class="price">
+        <h3 class="price__name">Découverte</h3>
+        <p class="price__amount">19 €<small>la séance</small></p>
+        <p class="price__desc">Une séance, un coach, aucune suite obligatoire.</p>
+        <ul class="price__list">
+          <li>45 à 60 min</li>
+          <li>Bilan de forme offert</li>
+          <li>Annulation gratuite 4 h avant</li>
+        </ul>
+        <a href="#reserver" class="btn btn--ghost btn--block" data-track="cta_price_decouverte">Tester</a>
+      </article>
+      <article class="price price--best">
+        <span class="price__tag">Le plus choisi</span>
+        <h3 class="price__name">Rythme</h3>
+        <p class="price__amount">39 €<small>la séance</small></p>
+        <p class="price__desc">Carnet de 10 séances, valable 6 mois, avec le coach de ton choix.</p>
+        <ul class="price__list">
+          <li>Programme personnalisé</li>
+          <li>Suivi entre les séances</li>
+          <li>Séances transférables</li>
+        </ul>
+        <a href="#reserver" class="btn btn--accent btn--block" data-track="cta_price_rythme">Choisir Rythme</a>
+      </article>
+      <article class="price">
+        <h3 class="price__name">Duo</h3>
+        <p class="price__amount">25 €<small>par personne</small></p>
+        <p class="price__desc">À deux, c'est plus dur d'annuler. Et c'est moins cher.</p>
+        <ul class="price__list">
+          <li>Séance à 2, même coach</li>
+          <li>Collègue, conjoint, voisin</li>
+          <li>Carnet partagé</li>
+        </ul>
+        <a href="#reserver" class="btn btn--ghost btn--block" data-track="cta_price_duo">Réserver à 2</a>
+      </article>
+    </div>
+    <p class="pricing__note">Paiement après la séance. Aucun prélèvement automatique. Éligible aux titres CSE partenaires.</p>
+  </div>
+</section>
+
+<!-- ============ CAMPAGNE / CASE STUDY ============ -->
+<section class="section section--dark" id="campagne">
+  <div class="wrap campaign">
+    <div class="campaign__phone">
+      <div class="phone">
+        <div class="phone__notch" aria-hidden="true"></div>
+        <video class="phone__video" id="ad-video" loop playsinline preload="none"
+               poster="assets/media/ad-poster.jpg">
+          <source src="assets/media/koacher-ad.mp4" type="video/mp4">
+        </video>
+        <button class="phone__play" id="ad-play" aria-label="Lire la publicité avec le son">▶</button>
+        <div class="phone__ui" aria-hidden="true">
+          <span class="phone__handle">koacher · Sponsorisé</span>
+          <span class="phone__cta">Réserver</span>
+        </div>
+      </div>
+    </div>
+    <div class="campaign__copy">
+      <p class="kicker">Le cas d'école</p>
+      <h2 class="display section__title">La pub Instagram,<br><span class="accent">de l'idée au clic.</span></h2>
+      <p class="section__lead">Format 9:16, 10 secondes, une seule idée : un homme en costume court dans la rue — et ce n'est pas pour son train.</p>
+      <dl class="making">
+        <div><dt>Le concept</dt><dd>Détourner la routine « métro, boulot, dodo » en trois mots. Le hook visuel arrive avant la première seconde : on voit courir, on veut savoir pourquoi.</dd></div>
+        <div><dt>Le tournage</dt><dd>Une matinée, un téléphone sur stabilisateur, lumière naturelle, un comédien en tenue de bureau. Travelling latéral pour garder le sujet centré en 9:16.</dd></div>
+        <div><dt>Le montage</dt><dd>Sous-titres brûlés (85 % des Reels sont vus sans son), rythme de coupe calé sur la foulée, révélation de la marque à 7 s, call-to-action plein écran à 9 s.</dd></div>
+        <div><dt>La diffusion</dt><dd>Objectif « Prospects », placements Reels + Stories, ciblage 25-45 ans dans un rayon de 15 km, 3 variantes de hook testées en A/B, redirection directe sur cette page.</dd></div>
+      </dl>
+      <div class="kpis">
+        <div class="kpi"><span class="kpi__n">—</span><span class="kpi__l">CTR (lien)</span></div>
+        <div class="kpi"><span class="kpi__n">—</span><span class="kpi__l">CPM</span></div>
+        <div class="kpi"><span class="kpi__n">—</span><span class="kpi__l">Coût par lead</span></div>
+        <div class="kpi"><span class="kpi__n">—</span><span class="kpi__l">Taux de conversion page</span></div>
+      </div>
+      <p class="kpis__note">Chiffres à compléter avec les données réelles du Gestionnaire de publicités une fois la campagne lancée.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq">
+  <div class="wrap wrap--narrow">
+    <p class="kicker">FAQ</p>
+    <h2 class="display section__title">Les questions qu'on nous pose.</h2>
+    <div class="faq">
+      <details class="faq__item">
+        <summary>Je suis débutant complet, c'est un problème ?</summary>
+        <p>C'est même le cas le plus fréquent. La première séance commence par un bilan : mobilité, niveau, antécédents. Le coach adapte tout à partir de là — personne ne te regarde de travers.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Où se passent les séances ?</summary>
+        <p>Là où tu es : parc, berges, salle partenaire, bureau ou domicile. Tu indiques ton quartier, on te propose les coachs qui s'y déplacent.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Et si je dois annuler ?</summary>
+        <p>Annulation libre et gratuite jusqu'à 4 h avant. Au-delà, la séance est décomptée — les coachs bloquent leur agenda pour toi.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Il faut du matériel ?</summary>
+        <p>Des baskets et une tenue. Le coach apporte élastiques, kettlebells, tapis et le reste selon la séance.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Comment sont sélectionnés les coachs ?</summary>
+        <p>Diplôme d'État (BPJEPS, STAPS ou équivalent) vérifié, assurance responsabilité civile professionnelle, entretien et séance test. Environ 30 % des candidatures sont retenues.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Quand est-ce que je paie ?</summary>
+        <p>Après la séance, par carte ou via ton carnet. Aucune empreinte bancaire n'est demandée au moment de la réservation.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="final">
+  <div class="wrap final__inner">
+    <h2 class="display final__title">Ton prochain créneau est<br>dans <span class="accent">30 secondes</span>.</h2>
+    <p class="final__lead">Première séance à 19 €. Sans engagement, sans abonnement, sans excuse.</p>
+    <a href="#reserver" class="btn btn--accent btn--lg" data-track="cta_final">Réserver ma séance</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <div class="footer__brand">
+      <span class="logo logo--footer">
+        <svg class="logo__mark" viewBox="0 0 48 32" aria-hidden="true"><path d="M13 6h14l-6 6h10l-9 8h8L18 30l4-10h-9l5-7H9z"/><path d="M0 13h11l-2 3H0zM2 19h9l-2 3H2z" opacity=".55"/></svg>
+        <span class="logo__word">KOACHER</span>
+      </span>
+      <p>Le coaching sportif qui s'adapte à ton agenda, pas l'inverse.</p>
+    </div>
+    <nav class="footer__col" aria-label="Produit">
+      <h3>Produit</h3>
+      <a href="#methode">Comment ça marche</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#coachs">Devenir coach</a>
+    </nav>
+    <nav class="footer__col" aria-label="Ressources">
+      <h3>Ressources</h3>
+      <a href="#faq">FAQ</a>
+      <a href="#campagne">La campagne</a>
+      <a href="#reserver">Réserver</a>
+    </nav>
+    <nav class="footer__col" aria-label="Légal">
+      <h3>Légal</h3>
+      <a href="#">Mentions légales</a>
+      <a href="#">CGV</a>
+      <a href="#">Confidentialité</a>
+    </nav>
+  </div>
+  <div class="wrap footer__bottom">
+    <p>© <span id="year">2026</span> Koacher — Maquette réalisée pour un cas d'école.</p>
+    <p>Fait à Lyon, en courant.</p>
+  </div>
+</footer>
+
+<!-- ============ STICKY MOBILE CTA ============ -->
+<div class="sticky-cta">
+  <div>
+    <strong>1<sup>re</sup> séance 19 €</strong>
+    <span>Sans engagement</span>
+  </div>
+  <a href="#reserver" class="btn btn--accent btn--sm" data-track="cta_sticky">Réserver</a>
+</div>
+
+<script src="assets/js/koacher.js"></script>
+</body>
+</html>
