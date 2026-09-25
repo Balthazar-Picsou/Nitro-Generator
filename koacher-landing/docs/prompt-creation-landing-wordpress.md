@@ -36,13 +36,25 @@ Si une page est inaccessible, dis-le-moi et demande-moi des captures d'écran pl
 
 Application de réservation d'activités sportives et de bien-être. Elle met en relation les sportifs avec des coachs indépendants, des salles, des clubs et des studios.
 
-- Plus de **35 disciplines** : fitness, yoga, pilates, boxe, tennis, padel, golf, running, natation, renforcement…
-- Séances **individuelles ou en groupe**.
+**Formulations officielles relevées sur les pages de la marque** — reprends ce vocabulaire et ce ton :
+
+> « Plus de 2 000 pros et lieux de sport, 50+ disciplines. Yoga, boxe, musculation, pilates, running… Réserve ta séance collective ou privée en quelques secondes. »
+
+> « KOACHER, l'application qui révolutionne la réservation de toutes vos activités sportives. »
+
+> « Trouve et réserve l'activité sportive qui répond à tes besoins : plus de 35 disciplines (fitness, yoga, pilates, tennis, golf, boxe…), en solo ou en groupe, où tu veux et quand tu peux, avec les meilleurs coachs et structures. »
+
+Faits à respecter :
+
+- **50+ disciplines** côté grand public (certaines pages plus anciennes disent 35+ — retiens le chiffre affiché aujourd'hui sur le site et signale-moi l'écart).
+- Séances **individuelles ou collectives**.
 - **Partout en France**, avec des tarifs préférentiels.
 - Séances **où le sportif veut** : à domicile, en salle, en extérieur, en visio, ou sur le lieu de travail.
-- Communauté de plus de **200 000 sportifs** et plus de **2 000 professionnels**.
+- Communauté de plus de **200 000 sportifs** et plus de **2 000 professionnels et lieux de sport**.
 - Réservation **24 h/24, 7 j/7**, sur le web et sur les applications iOS et Android.
-- Trois univers distincts : grand public (koacher.app), professionnels (pro.koacher.app), entreprises (b2b.koacher.app). **Cette landing page ne s'adresse qu'au grand public.**
+- Parcours réel : créer un compte → chercher une activité adaptée à ses objectifs → filtrer → réserver en quelques clics.
+- **Tutoiement** : la marque tutoie déjà ses utilisateurs (« Réserve ta séance »). C'est exactement le ton de la publicité, ne change rien.
+- Trois univers distincts : grand public (koacher.app), professionnels (pro.koacher.app), entreprises (b2b.koacher.app — budget sport et bien-être crédité par l'employeur). **Cette landing page ne s'adresse qu'au grand public** ; ne mélange pas les trois discours.
 
 **Points à respecter absolument** : KOACHER est une place de marché, pas un studio de coaching. Les prix sont fixés par les professionnels, donc **n'invente aucun tarif**. Ne promets rien que la marque ne promette pas. Si tu as besoin d'un chiffre que je ne t'ai pas donné, laisse un repère visible du type `[À COMPLÉTER]` plutôt que d'inventer.
 
@@ -71,8 +83,8 @@ Reel vertical 9:16, 10 secondes, sous-titres incrustés, ambiance urbaine :
 - La vidéo MP4 en fond, **en boucle, sans son, lecture automatique, `playsinline`**, avec image de poster pour l'affichage immédiat, et un voile sombre dégradé pour garder le texte lisible.
 - Surtitre : `RÉSERVATION DE SÉANCES DE SPORT — [VILLE]`, avec une pastille d'accent clignotante.
 - Titre en trois lignes empilées, très grand : **MÉTRO.** / **BOULOT.** / **KOACHER.** — le troisième mot dans la couleur d'accent de la marque.
-- Accroche : « Cet homme n'est pas en retard au travail. Il va juste faire sa séance de sport. **Réserve la tienne en 30 secondes** — plus de 35 disciplines, des coachs et des salles partout en France. »
-- Trois pastilles de réassurance : « Plus de 35 disciplines », « Réservation 24 h/24 », « Sans abonnement ».
+- Accroche : « Cet homme n'est pas en retard au travail. Il va juste faire sa séance de sport. **Réserve la tienne en quelques secondes** — 50+ disciplines, plus de 2 000 pros et lieux de sport partout en France. »
+- Trois pastilles de réassurance : « 50+ disciplines », « Réservation 24 h/24 », « En solo ou en groupe ».
 - À droite (en dessous sur mobile), **la carte de réservation**, reprenant les champs de la recherche du site :
   - Activité ou discipline (liste déroulante alimentée par les disciplines réelles du site)
   - Ville ou code postal
@@ -81,10 +93,10 @@ Reel vertical 9:16, 10 secondes, sous-titres incrustés, ambiance urbaine :
   - Mention sous le bouton : « Gratuit, sans carte bancaire. Tu choisis ton pro et ton créneau. »
 
 ### 2. Bandeau défilant
-Texte en boucle dans la couleur d'accent : « Métro. Boulot. Koacher. • 35 disciplines • Partout en France • Zéro excuse • »
+Texte en boucle dans la couleur d'accent : « Métro. Boulot. Koacher. • 50+ disciplines • Partout en France • Zéro excuse • »
 
 ### 3. Chiffres clés
-Quatre chiffres, repris du site, pas inventés : **200 000+ sportifs** · **2 000+ professionnels** · **35+ disciplines** · **Réservation 24 h/24**.
+Quatre chiffres, repris du site, pas inventés : **200 000+ sportifs** · **2 000+ pros et lieux de sport** · **50+ disciplines** · **Réservation 24 h/24**.
 
 ### 4. Les 3 objections
 Titre : « ON LES A TOUTES ENTENDUES. **ON LES A TOUTES RÉGLÉES.** » Trois cartes, chacune ouvrant sur l'objection en italique :
@@ -95,7 +107,7 @@ Titre : « ON LES A TOUTES ENTENDUES. **ON LES A TOUTES RÉGLÉES.** » Trois ca
 ### 5. Comment ça marche
 Titre : « TROIS ÉTAPES. ZÉRO FRICTION. » Trois colonnes numérotées 01 / 02 / 03 :
 1. **Tu cherches** — discipline, ville, moment. Trois champs, trente secondes.
-2. **Tu compares** — profils de coachs et de salles, avis, tarifs affichés, disponibilités en temps réel.
+2. **Tu compares** — profils de coachs, de salles et de studios, avis, tarifs affichés, disponibilités en temps réel. Séance privée ou collective, à toi de voir.
 3. **Tu réserves** — confirmation immédiate, et tu n'as plus qu'à enfiler tes baskets.
 Bouton en dessous : « Trouver ma séance ».
 
@@ -124,7 +136,7 @@ Six questions en accordéon, avec `<details>` natif et sans JavaScript : niveau 
 Fond : une image extraite de la vidéo, très assombrie. Titre centré : « TON PROCHAIN CRÉNEAU EST DANS **30 SECONDES**. » et un gros bouton d'accent « Réserver ma séance ».
 
 ### 14. Barre fixe mobile
-Sur mobile uniquement, une barre collée en bas : « 35+ disciplines / Sans abonnement » à gauche, bouton d'accent « Réserver » à droite.
+Sur mobile uniquement, une barre collée en bas : « 50+ disciplines / En solo ou en groupe » à gauche, bouton d'accent « Réserver » à droite.
 
 ## CONTRAINTES TECHNIQUES
 
