@@ -153,6 +153,7 @@
   /* ---------- 8. Compteurs ---------- */
   function animateCount(el) {
     var target = parseInt(el.getAttribute('data-count'), 10);
+    if (isNaN(target)) return;
     var suffix = el.getAttribute('data-suffix') || '';
     var start = performance.now();
     var dur = 1400;

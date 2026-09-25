@@ -364,9 +364,11 @@ sup{font-size:.6em;vertical-align:super}
   position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;
   align-items:center;justify-content:space-between;gap:14px;padding:12px 18px;
   background:rgba(10,10,10,.95);backdrop-filter:blur(14px);border-top:1px solid var(--ink-line);
-  transform:translateY(110%);transition:transform .35s var(--ease);
+  transition:transform .35s var(--ease);
 }
-.sticky-cta.is-visible{transform:translateY(0)}
+/* Sans JavaScript la barre reste visible ; avec JS elle n'apparaît qu'après le hero. */
+.js .sticky-cta{transform:translateY(110%)}
+.js .sticky-cta.is-visible{transform:translateY(0)}
 .sticky-cta strong{display:block;font-size:15px}
 .sticky-cta span{display:block;font-size:12px;color:var(--grey)}
 

@@ -1,0 +1,718 @@
+<!-- =============================================================
+     KOACHER — Landing page, version « bloc HTML » WordPress
+     -------------------------------------------------------------
+     MODE D'EMPLOI
+     1. Médias → Ajouter : téléverse koacher-ad.mp4, ad-poster.jpg
+        et ad-logo-frame.jpg, puis copie l'URL de chacun.
+     2. Dans ce code, remplace les 4 repères en majuscules :
+          URL_DE_LA_VIDEO            → l'URL du .mp4
+          URL_DE_L_IMAGE_POSTER      → l'URL de ad-poster.jpg
+          URL_IMAGE_DE_FOND_CTA      → l'URL de ad-logo-frame.jpg
+          URL_DE_RESERVATION         → ton Calendly / ton formulaire
+     3. Pages → Ajouter, bloc « HTML personnalisé », colle tout ce
+        fichier, publie. Choisis un modèle de page « pleine largeur ».
+     ============================================================= -->
+<style>
+@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url(data:font/woff2;base64,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) format('woff2')}
+/* =========================================================
+   KOACHER — Landing page
+   Palette issue de la pub : noir, blanc, rouge signal.
+   ========================================================= */
+
+
+
+.koacher-lp{--ink:#0A0A0A;
+  --ink-soft:#151515;
+  --ink-line:rgba(255,255,255,.12);
+  --paper:#F6F5F3;
+  --paper-line:rgba(10,10,10,.12);
+  --white:#FFFFFF;
+  --accent:#FF3B2F;
+  --accent-dark:#D92D22;
+  --grey:#9A9A9A;
+  --grey-ink:#5B5B5B;
+
+  --display:'Anton',Impact,'Haettenschweiler','Arial Narrow Bold',sans-serif;
+  --body:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+
+  --wrap:1180px;
+  --radius:14px;
+  --pad-y:clamp(72px,9vw,140px);
+  --ease:cubic-bezier(.22,1,.36,1);}
+
+.koacher-lp *, .koacher-lp *::before, .koacher-lp *::after{box-sizing:border-box}
+
+.koacher-lp{margin:0;
+  font-family:var(--body);
+  background:var(--ink);
+  color:var(--white);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;}
+.koacher-lp img, .koacher-lp video{max-width:100%;display:block}
+.koacher-lp a{color:inherit;text-decoration:none}
+.koacher-lp button{font:inherit}
+.koacher-lp sup{font-size:.6em;vertical-align:super}
+
+.koacher-lp .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 20px}
+.koacher-lp .wrap--narrow{max-width:820px}
+
+/* ---------- Typographie ---------- */
+.koacher-lp .display{font-family:var(--display);
+  font-weight:400;
+  text-transform:uppercase;
+  letter-spacing:.005em;
+  line-height:.92;
+  transform:skewX(-5deg);
+  transform-origin:left bottom;
+  margin:0;}
+.koacher-lp .accent{color:var(--accent)}
+.koacher-lp .kicker{font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  font-weight:700;color:var(--accent);margin:0 0 18px;}
+.koacher-lp .kicker--ink{color:var(--accent-dark)}
+.koacher-lp .section__title{font-size:clamp(34px,5.6vw,68px);margin-bottom:22px}
+.koacher-lp .section__lead{max-width:60ch;color:var(--grey);font-size:clamp(16px,1.6vw,19px);margin:0 0 42px}
+.koacher-lp .section--paper .section__lead{color:var(--grey-ink)}
+
+/* ---------- Boutons ---------- */
+.koacher-lp .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;
+  padding:16px 28px;border:0;border-radius:999px;cursor:pointer;
+  font-weight:700;font-size:15px;letter-spacing:.02em;
+  transition:transform .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease);
+  text-align:center;}
+.koacher-lp .btn--accent{background:var(--accent);color:var(--white);box-shadow:0 10px 30px rgba(255,59,47,.28)}
+.koacher-lp .btn--accent:hover{background:var(--accent-dark);transform:translateY(-2px)}
+.koacher-lp .btn--ghost{background:transparent;color:var(--ink);border:1.5px solid var(--paper-line)}
+.koacher-lp .btn--ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+.koacher-lp .btn--sm{padding:11px 20px;font-size:14px}
+.koacher-lp .btn--lg{padding:20px 40px;font-size:17px}
+.koacher-lp .btn--block{width:100%}
+
+/* ---------- NAV ---------- */
+.koacher-lp .nav{position:fixed;inset:0 0 auto 0;z-index:60;
+  background:rgba(10,10,10,0);backdrop-filter:blur(0px);
+  transition:background .3s var(--ease),backdrop-filter .3s var(--ease),border-color .3s var(--ease);
+  border-bottom:1px solid transparent;}
+.koacher-lp .nav.is-stuck{background:rgba(10,10,10,.82);backdrop-filter:blur(14px);border-bottom-color:var(--ink-line)}
+.koacher-lp .nav__inner{display:flex;align-items:center;gap:24px;height:72px}
+.koacher-lp .logo{display:inline-flex;align-items:center;gap:9px}
+.koacher-lp .logo__mark{width:34px;height:23px;fill:currentColor;flex:none}
+.koacher-lp .logo__word{font-family:var(--display);font-size:22px;letter-spacing:.02em;
+  transform:skewX(-8deg);text-transform:uppercase;}
+.koacher-lp .nav__links{display:flex;gap:26px;margin-left:auto;font-size:14.5px;font-weight:500;color:rgba(255,255,255,.78)}
+.koacher-lp .nav__links a{position:relative;padding:4px 0}
+.koacher-lp .nav__links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1.5px;background:var(--accent);
+  transition:right .3s var(--ease);}
+.koacher-lp .nav__links a:hover{color:#fff}
+.koacher-lp .nav__links a:hover::after{right:0}
+.koacher-lp .nav__burger{display:none;margin-left:auto;background:none;border:0;padding:10px;cursor:pointer;}
+.koacher-lp .nav__burger span{display:block;width:22px;height:2px;background:#fff;margin:4px 0;transition:.25s var(--ease)}
+.koacher-lp .nav__burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.koacher-lp .nav__burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.koacher-lp .nav__burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.koacher-lp .nav__mobile{display:none;flex-direction:column;gap:6px;padding:12px 20px 24px;
+  background:rgba(10,10,10,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--ink-line);}
+.koacher-lp .nav__mobile a{padding:12px 0;font-weight:600;border-bottom:1px solid var(--ink-line)}
+.koacher-lp .nav__mobile .btn{margin-top:12px;border-bottom:0}
+
+/* ---------- HERO ---------- */
+.koacher-lp .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:112px 0 64px;overflow:hidden}
+.koacher-lp .hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 18%;
+  filter:grayscale(.4) contrast(1.06) brightness(.82);}
+.koacher-lp .hero__scrim{position:absolute;inset:0;
+  background:
+    linear-gradient(105deg,rgba(10,10,10,.95) 0%,rgba(10,10,10,.82) 42%,rgba(10,10,10,.35) 72%,rgba(10,10,10,.6) 100%),
+    linear-gradient(to top,rgba(10,10,10,1) 2%,rgba(10,10,10,0) 38%);}
+.koacher-lp .hero__inner{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.koacher-lp .eyebrow{display:inline-flex;align-items:center;gap:9px;margin:0 0 22px;
+  font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.7);}
+.koacher-lp .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(255,59,47,.7);animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 12px rgba(255,59,47,0)}100%{box-shadow:0 0 0 0 rgba(255,59,47,0)}}
+.koacher-lp .hero__title{font-size:clamp(52px,9vw,116px)}
+.koacher-lp .hero__title span{display:block}
+.koacher-lp .hero__lead{max-width:48ch;margin:26px 0 24px;font-size:clamp(16px,1.8vw,19.5px);color:rgba(255,255,255,.82)}
+.koacher-lp .hero__lead strong{color:#fff}
+.koacher-lp .hero__chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0}
+.koacher-lp .hero__chips li{border:1px solid var(--ink-line);border-radius:999px;padding:8px 16px;
+  font-size:13px;font-weight:600;color:rgba(255,255,255,.85);background:rgba(255,255,255,.04);}
+.koacher-lp .hero__scroll{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);
+  width:40px;height:40px;border-radius:50%;border:1px solid var(--ink-line);
+  display:grid;place-items:center;color:rgba(255,255,255,.6);animation:bob 2.6s infinite;}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,7px)}}
+
+/* ---------- BOOKING ---------- */
+.koacher-lp .booking{background:rgba(18,18,18,.86);backdrop-filter:blur(18px);
+  border:1px solid var(--ink-line);border-radius:22px;padding:30px;
+  box-shadow:0 30px 80px rgba(0,0,0,.55);}
+.koacher-lp .booking__head{margin-bottom:20px}
+.koacher-lp .booking__title{font-family:var(--display);font-size:27px;text-transform:uppercase;transform:skewX(-5deg);margin:0 0 6px;font-weight:400}
+.koacher-lp .booking__sub{margin:0;font-size:13.5px;color:var(--grey)}
+.koacher-lp .booking__form{display:grid;gap:13px}
+.koacher-lp .field{display:block}
+.koacher-lp .field__label{display:block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--grey);margin-bottom:7px}
+.koacher-lp .field input, .koacher-lp .field select{width:100%;padding:14px 15px;border-radius:11px;border:1px solid var(--ink-line);
+  background:rgba(255,255,255,.05);color:#fff;font-family:var(--body);font-size:15px;
+  transition:border-color .2s var(--ease),background .2s var(--ease);appearance:none;}
+.koacher-lp .field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath fill='%239A9A9A' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 15px center;background-size:11px;padding-right:38px;}
+.koacher-lp .field input::placeholder{color:#6d6d6d}
+.koacher-lp .field input:focus, .koacher-lp .field select:focus{outline:0;border-color:var(--accent);background:rgba(255,255,255,.08)}
+.koacher-lp .field option{background:#141414;color:#fff}
+.koacher-lp .booking__legal{margin:2px 0 0;font-size:12px;color:#7d7d7d;text-align:center}
+.koacher-lp .booking__success{margin:0;padding:14px;border-radius:11px;background:rgba(255,59,47,.12);
+  border:1px solid rgba(255,59,47,.4);font-size:14.5px;font-weight:600;}
+
+/* ---------- MARQUEE ---------- */
+.koacher-lp .marquee{background:var(--accent);color:#fff;overflow:hidden;padding:13px 0;border-block:1px solid rgba(0,0,0,.15)}
+.koacher-lp .marquee__track{display:flex;gap:26px;white-space:nowrap;width:max-content;animation:slide 26s linear infinite}
+.koacher-lp .marquee__track span{font-family:var(--display);font-size:19px;text-transform:uppercase;transform:skewX(-6deg);letter-spacing:.03em}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ---------- SECTIONS ---------- */
+.koacher-lp .section{padding:var(--pad-y) 0}
+.koacher-lp .section--tight{padding-top:0}
+.koacher-lp .section--dark{background:var(--ink-soft)}
+.koacher-lp .section--paper{background:var(--paper);color:var(--ink)}
+.koacher-lp .section--paper .display{color:var(--ink)}
+.koacher-lp .section__cta{margin-top:46px}
+
+/* ---------- STATS ---------- */
+.koacher-lp .stats{background:var(--ink);padding:54px 0;border-bottom:1px solid var(--ink-line)}
+.koacher-lp .stats__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.koacher-lp .stat__n{display:block;font-family:var(--display);font-size:clamp(34px,4.4vw,54px);line-height:1;transform:skewX(-5deg)}
+.koacher-lp .stat__n small{font-size:.45em;color:var(--grey)}
+.koacher-lp .stat__l{display:block;margin-top:9px;font-size:13px;color:var(--grey);letter-spacing:.04em}
+
+/* ---------- CARDS ---------- */
+.koacher-lp .cards{display:grid;gap:22px}
+.koacher-lp .cards--3{grid-template-columns:repeat(3,1fr)}
+.koacher-lp .card{background:rgba(255,255,255,.035);border:1px solid var(--ink-line);border-radius:var(--radius);
+  padding:30px;transition:transform .35s var(--ease),border-color .35s var(--ease);}
+.koacher-lp .card:hover{transform:translateY(-4px);border-color:rgba(255,59,47,.45)}
+.koacher-lp .card__quote{margin:0 0 16px;font-size:14px;color:var(--accent);font-weight:700;font-style:italic}
+.koacher-lp .card__title{font-size:20px;margin:0 0 10px;font-weight:700}
+.koacher-lp .card__text{margin:0;color:var(--grey);font-size:15.5px}
+
+/* ---------- STEPS ---------- */
+.koacher-lp .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;counter-reset:s}
+.koacher-lp .step{border-top:2px solid var(--accent);padding-top:22px}
+.koacher-lp .step__n{font-family:var(--display);font-size:46px;color:rgba(255,255,255,.16);display:block;line-height:1;transform:skewX(-5deg)}
+.koacher-lp .step__title{font-size:21px;margin:12px 0 9px}
+.koacher-lp .step p{margin:0;color:var(--grey);font-size:15.5px}
+
+/* ---------- DISCIPLINES ---------- */
+.koacher-lp .disciplines{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ink-line);border:1px solid var(--ink-line)}
+.koacher-lp .disciplines li{background:var(--ink-soft);padding:30px 24px;transition:background .3s var(--ease);}
+.koacher-lp .disciplines li:hover{background:var(--accent)}
+.koacher-lp .disciplines span{display:block;font-family:var(--display);font-size:24px;text-transform:uppercase;transform:skewX(-5deg)}
+.koacher-lp .disciplines em{display:block;margin-top:6px;font-style:normal;font-size:13.5px;color:var(--grey)}
+.koacher-lp .disciplines li:hover em{color:rgba(255,255,255,.85)}
+
+/* ---------- COACHS ---------- */
+.koacher-lp .coach{border:1px solid var(--ink-line);border-radius:var(--radius);padding:26px;background:rgba(255,255,255,.03)}
+.koacher-lp .coach__photo{width:100%;aspect-ratio:4/3;border-radius:10px;margin-bottom:18px;
+  background:linear-gradient(135deg,#1f1f1f,#0d0d0d);position:relative;overflow:hidden;}
+.koacher-lp .coach__photo::after{content:attr(data-initials);position:absolute;inset:0;display:grid;place-items:center;
+  font-family:var(--display);font-size:52px;color:rgba(255,59,47,.5);transform:skewX(-6deg);}
+.koacher-lp .coach__name{font-size:20px;margin:0 0 4px}
+.koacher-lp .coach__meta{margin:0 0 14px;font-size:13px;color:var(--accent);font-weight:600}
+.koacher-lp .coach__text{margin:0 0 16px;color:var(--grey);font-size:15px;font-style:italic}
+.koacher-lp .coach__note{margin:0;font-weight:700;font-size:14.5px}
+.koacher-lp .coach__note small{color:var(--grey);font-weight:400}
+
+/* ---------- QUOTES ---------- */
+.koacher-lp .quote{margin:0;background:var(--white);border-radius:var(--radius);padding:30px;border:1px solid var(--paper-line)}
+.koacher-lp .quote p{margin:0 0 18px;font-size:16.5px;line-height:1.62}
+.koacher-lp .quote footer{font-size:14px;color:var(--grey-ink)}
+.koacher-lp .quote strong{color:var(--ink)}
+
+/* ---------- PRICING ---------- */
+.koacher-lp .pricing{align-items:stretch}
+.koacher-lp .price{background:var(--white);border:1px solid var(--paper-line);border-radius:18px;padding:32px;
+  display:flex;flex-direction:column;position:relative;}
+.koacher-lp .price--best{border:2px solid var(--ink);box-shadow:0 24px 60px rgba(10,10,10,.14)}
+.koacher-lp .price__tag{position:absolute;top:-13px;left:32px;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:6px 13px;border-radius:999px;}
+.koacher-lp .price__name{font-family:var(--display);font-size:25px;text-transform:uppercase;transform:skewX(-5deg);margin:0 0 10px;font-weight:400}
+.koacher-lp .price__amount{font-family:var(--display);font-size:46px;margin:0 0 10px;line-height:1;transform:skewX(-5deg)}
+.koacher-lp .price__amount small{font-family:var(--body);font-size:14px;font-weight:500;color:var(--grey-ink);margin-left:9px;transform:skewX(5deg);display:inline-block}
+.koacher-lp .price__desc{margin:0 0 18px;color:var(--grey-ink);font-size:15px}
+.koacher-lp .price__list{list-style:none;padding:0;margin:0 0 26px;display:grid;gap:10px;font-size:15px}
+.koacher-lp .price__list li{padding-left:24px;position:relative}
+.koacher-lp .price__list li::before{content:"→";position:absolute;left:0;color:var(--accent);font-weight:700}
+.koacher-lp .price .btn{margin-top:auto}
+.koacher-lp .pricing__note{margin:26px 0 0;font-size:13.5px;color:var(--grey-ink);text-align:center}
+
+/* ---------- CAMPAGNE ---------- */
+.koacher-lp .campaign{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
+.koacher-lp .phone{position:relative;width:min(300px,78vw);margin:0 auto;aspect-ratio:9/19.5;
+  background:#000;border:9px solid #1c1c1c;border-radius:42px;overflow:hidden;
+  box-shadow:0 34px 80px rgba(0,0,0,.6);}
+.koacher-lp .phone__notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:36%;height:22px;background:#1c1c1c;border-radius:0 0 14px 14px;z-index:3}
+.koacher-lp .phone__video{width:100%;height:100%;object-fit:cover}
+.koacher-lp .phone__play{position:absolute;inset:0;margin:auto;width:66px;height:66px;border-radius:50%;
+  background:rgba(255,59,47,.94);color:#fff;border:0;font-size:22px;cursor:pointer;z-index:4;
+  display:grid;place-items:center;transition:transform .25s var(--ease),opacity .25s var(--ease);}
+.koacher-lp .phone__play:hover{transform:scale(1.08)}
+.koacher-lp .phone.is-playing .phone__play{opacity:0;pointer-events:none}
+.koacher-lp .phone__ui{position:absolute;left:0;right:0;bottom:0;padding:16px;z-index:3;
+  background:linear-gradient(to top,rgba(0,0,0,.8),transparent);display:grid;gap:10px}
+.koacher-lp .phone__handle{font-size:12.5px;font-weight:600;color:rgba(255,255,255,.9)}
+.koacher-lp .phone__cta{display:block;text-align:center;background:rgba(255,255,255,.96);color:#000;
+  font-size:13px;font-weight:700;padding:9px;border-radius:8px;}
+.koacher-lp .making{margin:32px 0 0;display:grid;gap:18px}
+.koacher-lp .making div{border-left:2px solid var(--accent);padding-left:18px}
+.koacher-lp .making dt{font-weight:800;font-size:15px;margin-bottom:5px}
+.koacher-lp .making dd{margin:0;color:var(--grey);font-size:15px}
+.koacher-lp .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:34px}
+.koacher-lp .kpi{border:1px dashed var(--ink-line);border-radius:10px;padding:16px 12px;text-align:center}
+.koacher-lp .kpi__n{display:block;font-family:var(--display);font-size:28px;color:var(--accent);transform:skewX(-5deg)}
+.koacher-lp .kpi__l{display:block;font-size:11.5px;color:var(--grey);margin-top:5px;letter-spacing:.05em}
+.koacher-lp .kpis__note{margin:14px 0 0;font-size:12.5px;color:#7d7d7d;font-style:italic}
+
+/* ---------- FAQ ---------- */
+.koacher-lp .faq{display:grid;gap:0;border-top:1px solid var(--ink-line)}
+.koacher-lp .faq__item{border-bottom:1px solid var(--ink-line)}
+.koacher-lp .faq__item summary{cursor:pointer;padding:22px 44px 22px 0;font-weight:700;font-size:17px;position:relative;list-style:none;}
+.koacher-lp .faq__item summary::-webkit-details-marker{display:none}
+.koacher-lp .faq__item summary::after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);
+  font-size:24px;color:var(--accent);transition:transform .3s var(--ease);}
+.koacher-lp .faq__item[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.koacher-lp .faq__item p{margin:0 0 24px;color:var(--grey);max-width:70ch}
+
+/* ---------- FINAL ---------- */
+.koacher-lp .final{padding:var(--pad-y) 0;text-align:center;position:relative;overflow:hidden;
+  background:
+    linear-gradient(rgba(10,10,10,.82),rgba(10,10,10,.92)),
+    url("URL_IMAGE_DE_FOND_CTA") center/cover no-repeat;}
+.koacher-lp .final__inner{position:relative}
+.koacher-lp .final__title{font-size:clamp(38px,6.4vw,84px);transform-origin:center;transform:skewX(-5deg)}
+.koacher-lp .final__lead{margin:22px auto 34px;max-width:52ch;color:var(--grey);font-size:17px}
+
+/* ---------- FOOTER ---------- */
+.koacher-lp .footer{background:#060606;border-top:1px solid var(--ink-line);padding:60px 0 28px}
+.koacher-lp .footer__inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:34px}
+.koacher-lp .footer__brand p{color:var(--grey);font-size:14.5px;max-width:34ch;margin:16px 0 0}
+.koacher-lp .logo--footer{display:inline-flex}
+.koacher-lp .footer__col h3{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);margin:0 0 14px}
+.koacher-lp .footer__col a{display:block;padding:5px 0;font-size:14.5px;color:rgba(255,255,255,.82)}
+.koacher-lp .footer__col a:hover{color:var(--accent)}
+.koacher-lp .footer__bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  margin-top:44px;padding-top:22px;border-top:1px solid var(--ink-line);
+  font-size:12.5px;color:#6f6f6f;}
+.koacher-lp .footer__bottom p{margin:0}
+
+/* ---------- STICKY CTA ---------- */
+.koacher-lp .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;
+  align-items:center;justify-content:space-between;gap:14px;padding:12px 18px;
+  background:rgba(10,10,10,.95);backdrop-filter:blur(14px);border-top:1px solid var(--ink-line);
+  transition:transform .35s var(--ease);}
+/* Sans JavaScript la barre reste visible ; avec JS elle n'apparaît qu'après le hero. */
+.koacher-lp .sticky-cta{transform:translateY(110%)}
+.koacher-lp .sticky-cta.is-visible{transform:translateY(0)}
+.koacher-lp .sticky-cta strong{display:block;font-size:15px}
+.koacher-lp .sticky-cta span{display:block;font-size:12px;color:var(--grey)}
+
+/* ---------- Reveal ----------
+   Volontairement conditionné à la classe .js : sans JavaScript, ou si
+   IntersectionObserver échoue, le contenu reste visible (une landing page
+   ne doit jamais pouvoir rester blanche). */
+.koacher-lp .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.koacher-lp .reveal.is-in{opacity:1;transform:none}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1000px){
+  .koacher-lp .hero__inner{grid-template-columns:1fr;gap:38px}
+  .koacher-lp .booking{max-width:560px}
+  .koacher-lp .campaign{grid-template-columns:1fr;gap:42px}
+  .koacher-lp .footer__inner{grid-template-columns:1fr 1fr}
+  .koacher-lp .disciplines{grid-template-columns:repeat(2,1fr)}
+  .koacher-lp .stats__grid{grid-template-columns:repeat(2,1fr);gap:32px}
+}
+@media (max-width:820px){
+  .koacher-lp .nav__links, .koacher-lp .nav__cta{display:none}
+  .koacher-lp .nav__burger{display:block}
+  .koacher-lp .nav.is-open .nav__mobile{display:flex}
+  .koacher-lp .cards--3, .koacher-lp .steps{grid-template-columns:1fr}
+  .koacher-lp .kpis{grid-template-columns:repeat(2,1fr)}
+  .koacher-lp .sticky-cta{display:flex}
+  .koacher-lp .hero{min-height:auto;padding:104px 0 56px}
+  .koacher-lp .hero__scroll{display:none}
+  .koacher-lp{padding-bottom:68px}
+}
+@media (max-width:480px){
+  .koacher-lp .booking{padding:22px}
+  .koacher-lp .disciplines{grid-template-columns:1fr}
+  .koacher-lp .footer__inner{grid-template-columns:1fr}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .koacher-lp *, .koacher-lp *::before, .koacher-lp *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .koacher-lp{scroll-behavior:auto}
+}
+</style>
+
+<div class="koacher-lp">
+<!-- ============ HERO ============ -->
+<section class="hero" id="reserver">
+  <video class="hero__video" autoplay muted loop playsinline preload="metadata"
+         poster="URL_DE_L_IMAGE_POSTER" aria-hidden="true" tabindex="-1">
+    <source src="URL_DE_LA_VIDEO" type="video/mp4">
+  </video>
+  <div class="hero__scrim"></div>
+
+  <div class="wrap hero__inner">
+    <div class="hero__copy">
+      <p class="eyebrow"><span class="dot"></span> Coaching sportif à la demande — Lyon &amp; agglo</p>
+      <h1 class="display hero__title">
+        <span>Métro.</span>
+        <span>Boulot.</span>
+        <span class="accent">Koacher.</span>
+      </h1>
+      <p class="hero__lead">
+        Cet homme n'est pas en retard au travail. Il va juste faire sa séance de sport.
+        <strong>Réserve la tienne en 30 secondes</strong> — un coach certifié, au créneau qui t'arrange.
+      </p>
+      <ul class="hero__chips">
+        <li>1<sup>re</sup> séance à 19 €</li>
+        <li>Sans engagement</li>
+        <li>Annulation gratuite 4 h avant</li>
+      </ul>
+    </div>
+
+    <!-- Booking widget -->
+    <div class="booking" id="booking">
+      <div class="booking__head">
+        <h2 class="booking__title">Trouve ton créneau</h2>
+        <p class="booking__sub">Plus de 140 coachs disponibles cette semaine</p>
+      </div>
+      <div class="booking__form">
+          <!-- ▼▼▼ REMPLACE CE BLOC ▼▼▼
+               Deux possibilités :
+               1. Colle ici le code court de ton formulaire WordPress
+                  (Contact Form 7, WPForms, Formulaire Jetpack…) : [contact-form-7 id="123"]
+               2. Ou garde le bouton ci-dessous et remplace le lien par ton Calendly,
+                  ton Simplybook, ou ton numéro WhatsApp.
+               ▲▲▲ REMPLACE CE BLOC ▲▲▲ -->
+          <a class="btn btn--accent btn--block" href="URL_DE_RESERVATION">Voir les créneaux dispo →</a>
+          <p class="booking__legal">Gratuit, sans carte bancaire. Tu confirmes après avoir vu les créneaux.</p>
+        </div>
+    </div>
+  </div>
+
+  <a class="hero__scroll" href="#preuve" aria-label="Faire défiler">↓</a>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Métro. Boulot. Koacher. •</span><span>45 min chrono •</span><span>Métro. Boulot. Koacher. •</span><span>Zéro excuse •</span>
+    <span>Métro. Boulot. Koacher. •</span><span>45 min chrono •</span><span>Métro. Boulot. Koacher. •</span><span>Zéro excuse •</span>
+  </div>
+</div>
+
+<!-- ============ PREUVE / STATS ============ -->
+<section class="stats" id="preuve">
+  <div class="wrap stats__grid">
+    <div class="stat"><span class="stat__n" data-count="12480">12 480</span><span class="stat__l">séances réservées</span></div>
+    <div class="stat"><span class="stat__n">4,9<small>/5</small></span><span class="stat__l">note moyenne coach</span></div>
+    <div class="stat"><span class="stat__n" data-count="140">140</span><span class="stat__l">coachs certifiés</span></div>
+    <div class="stat"><span class="stat__n" data-count="92" data-suffix="%">92%</span><span class="stat__l">réservent une 2<sup>e</sup> séance</span></div>
+  </div>
+</section>
+
+<!-- ============ OBJECTIONS ============ -->
+<section class="section section--dark" id="objections">
+  <div class="wrap">
+    <p class="kicker">Les 3 excuses</p>
+    <h2 class="display section__title">On les a toutes entendues.<br><span class="accent">On les a toutes réglées.</span></h2>
+    <div class="cards cards--3">
+      <article class="card">
+        <p class="card__quote">« J'ai pas le temps. »</p>
+        <h3 class="card__title">45 minutes, montre en main</h3>
+        <p class="card__text">Des créneaux de 6 h à 22 h, 7 j/7. Avant le bureau, sur la pause déj, ou en sortant. Le coach est là quand toi tu peux.</p>
+      </article>
+      <article class="card">
+        <p class="card__quote">« J'ai pas la motivation. »</p>
+        <h3 class="card__title">Quelqu'un t'attend</h3>
+        <p class="card__text">Un rendez-vous avec un humain, pas un abonnement qui dort. 92 % des personnes qui réservent une séance en réservent une deuxième.</p>
+      </article>
+      <article class="card">
+        <p class="card__quote">« J'ai pas de salle. »</p>
+        <h3 class="card__title">Le terrain, c'est ta ville</h3>
+        <p class="card__text">Parc, quai, salle partenaire, ou directement chez toi. Le coach apporte le matériel. Toi, tu apportes tes baskets.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MÉTHODE ============ -->
+<section class="section" id="methode">
+  <div class="wrap">
+    <p class="kicker">Comment ça marche</p>
+    <h2 class="display section__title">Trois étapes. Zéro friction.</h2>
+    <ol class="steps">
+      <li class="step">
+        <span class="step__n">01</span>
+        <h3 class="step__title">Tu dis ce que tu veux</h3>
+        <p>Discipline, quartier, moment de la journée. Quatre champs, trente secondes.</p>
+      </li>
+      <li class="step">
+        <span class="step__n">02</span>
+        <h3 class="step__title">On te propose 3 coachs</h3>
+        <p>Profils vérifiés, diplômes contrôlés, avis réels. Tu choisis celui dont la tête te revient.</p>
+      </li>
+      <li class="step">
+        <span class="step__n">03</span>
+        <h3 class="step__title">Tu enfiles tes baskets</h3>
+        <p>Rendez-vous confirmé par SMS. Paiement après la séance. Annulation libre jusqu'à 4 h avant.</p>
+      </li>
+    </ol>
+    <div class="section__cta">
+      <a href="#reserver" class="btn btn--accent" data-track="cta_methode">Réserver ma 1<sup>re</sup> séance — 19 €</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DISCIPLINES ============ -->
+<section class="section section--dark" id="disciplines">
+  <div class="wrap">
+    <p class="kicker">Disciplines</p>
+    <h2 class="display section__title">Choisis ton terrain de jeu.</h2>
+    <ul class="disciplines">
+      <li><span>Renforcement</span><em>Force &amp; posture</em></li>
+      <li><span>Running</span><em>Du 5 km au marathon</em></li>
+      <li><span>Boxe</span><em>Technique &amp; cardio</em></li>
+      <li><span>HIIT</span><em>30 min, rien que du gras</em></li>
+      <li><span>Yoga</span><em>Mobilité &amp; dos</em></li>
+      <li><span>Prépa physique</span><em>Objectif compétition</em></li>
+      <li><span>Natation</span><em>Technique en bassin</em></li>
+      <li><span>Remise en forme</span><em>Reprise en douceur</em></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ COACHS ============ -->
+<section class="section" id="coachs">
+  <div class="wrap">
+    <p class="kicker">Les coachs</p>
+    <h2 class="display section__title">Des pros. Pas des influenceurs.</h2>
+    <p class="section__lead">Diplôme vérifié, assurance à jour, casier contrôlé. On refuse 7 candidatures sur 10.</p>
+    <div class="cards cards--3">
+      <article class="coach">
+        <div class="coach__photo" data-initials="SA" aria-hidden="true"></div>
+        <h3 class="coach__name">Sarah A.</h3>
+        <p class="coach__meta">Renforcement &amp; posture · Lyon 3<sup>e</sup></p>
+        <p class="coach__text">« Le corps ne demande pas deux heures. Il demande de la régularité. »</p>
+        <p class="coach__note">★ 4,9 <small>· 310 séances</small></p>
+      </article>
+      <article class="coach">
+        <div class="coach__photo" data-initials="MK" aria-hidden="true"></div>
+        <h3 class="coach__name">Mehdi K.</h3>
+        <p class="coach__meta">Boxe &amp; HIIT · Villeurbanne</p>
+        <p class="coach__text">« Tu arrives énervé par ta journée, tu repars vidé et calme. »</p>
+        <p class="coach__note">★ 5,0 <small>· 188 séances</small></p>
+      </article>
+      <article class="coach">
+        <div class="coach__photo" data-initials="TL" aria-hidden="true"></div>
+        <h3 class="coach__name">Thomas L.</h3>
+        <p class="coach__meta">Running &amp; endurance · Lyon 6<sup>e</sup></p>
+        <p class="coach__text">« On court à ton rythme. Le chrono, on en parle plus tard. »</p>
+        <p class="coach__note">★ 4,8 <small>· 425 séances</small></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TÉMOIGNAGES ============ -->
+<section class="section section--paper" id="avis">
+  <div class="wrap">
+    <p class="kicker kicker--ink">Ils ont arrêté de repousser</p>
+    <h2 class="display section__title">« J'ai réservé pendant la pub. »</h2>
+    <div class="cards cards--3">
+      <blockquote class="quote">
+        <p>J'ai vu le Reel dans le métro, j'ai réservé avant d'arriver au bureau. Première séance le lendemain à 7 h. Ça fait quatre mois.</p>
+        <footer><strong>Julien, 34 ans</strong> — Lyon 7<sup>e</sup></footer>
+      </blockquote>
+      <blockquote class="quote">
+        <p>Trois salles de sport payées, jamais utilisées. Là, quelqu'un m'attend en bas de chez moi. Je ne me défile plus.</p>
+        <footer><strong>Naïma, 29 ans</strong> — Villeurbanne</footer>
+      </blockquote>
+      <blockquote class="quote">
+        <p>45 minutes sur ma pause déj, douche au bureau, et ma journée est sauvée. Le meilleur investissement de mon agenda.</p>
+        <footer><strong>Pierre, 41 ans</strong> — Part-Dieu</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TARIFS ============ -->
+<section class="section section--paper section--tight" id="tarifs">
+  <div class="wrap">
+    <p class="kicker kicker--ink">Tarifs</p>
+    <h2 class="display section__title">Tu paies des séances. Pas un abonnement fantôme.</h2>
+    <div class="cards cards--3 pricing">
+      <article class="price">
+        <h3 class="price__name">Découverte</h3>
+        <p class="price__amount">19 €<small>la séance</small></p>
+        <p class="price__desc">Une séance, un coach, aucune suite obligatoire.</p>
+        <ul class="price__list">
+          <li>45 à 60 min</li>
+          <li>Bilan de forme offert</li>
+          <li>Annulation gratuite 4 h avant</li>
+        </ul>
+        <a href="#reserver" class="btn btn--ghost btn--block" data-track="cta_price_decouverte">Tester</a>
+      </article>
+      <article class="price price--best">
+        <span class="price__tag">Le plus choisi</span>
+        <h3 class="price__name">Rythme</h3>
+        <p class="price__amount">39 €<small>la séance</small></p>
+        <p class="price__desc">Carnet de 10 séances, valable 6 mois, avec le coach de ton choix.</p>
+        <ul class="price__list">
+          <li>Programme personnalisé</li>
+          <li>Suivi entre les séances</li>
+          <li>Séances transférables</li>
+        </ul>
+        <a href="#reserver" class="btn btn--accent btn--block" data-track="cta_price_rythme">Choisir Rythme</a>
+      </article>
+      <article class="price">
+        <h3 class="price__name">Duo</h3>
+        <p class="price__amount">25 €<small>par personne</small></p>
+        <p class="price__desc">À deux, c'est plus dur d'annuler. Et c'est moins cher.</p>
+        <ul class="price__list">
+          <li>Séance à 2, même coach</li>
+          <li>Collègue, conjoint, voisin</li>
+          <li>Carnet partagé</li>
+        </ul>
+        <a href="#reserver" class="btn btn--ghost btn--block" data-track="cta_price_duo">Réserver à 2</a>
+      </article>
+    </div>
+    <p class="pricing__note">Paiement après la séance. Aucun prélèvement automatique. Éligible aux titres CSE partenaires.</p>
+  </div>
+</section>
+
+<!-- ============ CAMPAGNE / CASE STUDY ============ -->
+<section class="section section--dark" id="campagne">
+  <div class="wrap campaign">
+    <div class="campaign__phone">
+      <div class="phone">
+        <div class="phone__notch" aria-hidden="true"></div>
+        <video class="phone__video" controls loop playsinline preload="none"
+               poster="URL_DE_L_IMAGE_POSTER">
+          <source src="URL_DE_LA_VIDEO" type="video/mp4">
+        </video>
+        <div class="phone__ui" aria-hidden="true">
+          <span class="phone__handle">koacher · Sponsorisé</span>
+          <span class="phone__cta">Réserver</span>
+        </div>
+      </div>
+    </div>
+    <div class="campaign__copy">
+      <p class="kicker">Le cas d'école</p>
+      <h2 class="display section__title">La pub Instagram,<br><span class="accent">de l'idée au clic.</span></h2>
+      <p class="section__lead">Format 9:16, 10 secondes, une seule idée : un homme en costume court dans la rue — et ce n'est pas pour son train.</p>
+      <dl class="making">
+        <div><dt>Le concept</dt><dd>Détourner la routine « métro, boulot, dodo » en trois mots. Le hook visuel arrive avant la première seconde : on voit courir, on veut savoir pourquoi.</dd></div>
+        <div><dt>Le tournage</dt><dd>Une matinée, un téléphone sur stabilisateur, lumière naturelle, un comédien en tenue de bureau. Travelling latéral pour garder le sujet centré en 9:16.</dd></div>
+        <div><dt>Le montage</dt><dd>Sous-titres brûlés (85 % des Reels sont vus sans son), rythme de coupe calé sur la foulée, révélation de la marque à 7 s, call-to-action plein écran à 9 s.</dd></div>
+        <div><dt>La diffusion</dt><dd>Objectif « Prospects », placements Reels + Stories, ciblage 25-45 ans dans un rayon de 15 km, 3 variantes de hook testées en A/B, redirection directe sur cette page.</dd></div>
+      </dl>
+      <div class="kpis">
+        <div class="kpi"><span class="kpi__n">—</span><span class="kpi__l">CTR (lien)</span></div>
+        <div class="kpi"><span class="kpi__n">—</span><span class="kpi__l">CPM</span></div>
+        <div class="kpi"><span class="kpi__n">—</span><span class="kpi__l">Coût par lead</span></div>
+        <div class="kpi"><span class="kpi__n">—</span><span class="kpi__l">Taux de conversion page</span></div>
+      </div>
+      <p class="kpis__note">Chiffres à compléter avec les données réelles du Gestionnaire de publicités une fois la campagne lancée.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq">
+  <div class="wrap wrap--narrow">
+    <p class="kicker">FAQ</p>
+    <h2 class="display section__title">Les questions qu'on nous pose.</h2>
+    <div class="faq">
+      <details class="faq__item">
+        <summary>Je suis débutant complet, c'est un problème ?</summary>
+        <p>C'est même le cas le plus fréquent. La première séance commence par un bilan : mobilité, niveau, antécédents. Le coach adapte tout à partir de là — personne ne te regarde de travers.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Où se passent les séances ?</summary>
+        <p>Là où tu es : parc, berges, salle partenaire, bureau ou domicile. Tu indiques ton quartier, on te propose les coachs qui s'y déplacent.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Et si je dois annuler ?</summary>
+        <p>Annulation libre et gratuite jusqu'à 4 h avant. Au-delà, la séance est décomptée — les coachs bloquent leur agenda pour toi.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Il faut du matériel ?</summary>
+        <p>Des baskets et une tenue. Le coach apporte élastiques, kettlebells, tapis et le reste selon la séance.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Comment sont sélectionnés les coachs ?</summary>
+        <p>Diplôme d'État (BPJEPS, STAPS ou équivalent) vérifié, assurance responsabilité civile professionnelle, entretien et séance test. Environ 30 % des candidatures sont retenues.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Quand est-ce que je paie ?</summary>
+        <p>Après la séance, par carte ou via ton carnet. Aucune empreinte bancaire n'est demandée au moment de la réservation.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="final">
+  <div class="wrap final__inner">
+    <h2 class="display final__title">Ton prochain créneau est<br>dans <span class="accent">30 secondes</span>.</h2>
+    <p class="final__lead">Première séance à 19 €. Sans engagement, sans abonnement, sans excuse.</p>
+    <a href="#reserver" class="btn btn--accent btn--lg" data-track="cta_final">Réserver ma séance</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <div class="footer__brand">
+      <span class="logo logo--footer">
+        <svg class="logo__mark" viewBox="0 0 48 32" aria-hidden="true"><path d="M13 6h14l-6 6h10l-9 8h8L18 30l4-10h-9l5-7H9z"/><path d="M0 13h11l-2 3H0zM2 19h9l-2 3H2z" opacity=".55"/></svg>
+        <span class="logo__word">KOACHER</span>
+      </span>
+      <p>Le coaching sportif qui s'adapte à ton agenda, pas l'inverse.</p>
+    </div>
+    <nav class="footer__col" aria-label="Produit">
+      <h3>Produit</h3>
+      <a href="#methode">Comment ça marche</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#coachs">Devenir coach</a>
+    </nav>
+    <nav class="footer__col" aria-label="Ressources">
+      <h3>Ressources</h3>
+      <a href="#faq">FAQ</a>
+      <a href="#campagne">La campagne</a>
+      <a href="#reserver">Réserver</a>
+    </nav>
+    <nav class="footer__col" aria-label="Légal">
+      <h3>Légal</h3>
+      <a href="#">Mentions légales</a>
+      <a href="#">CGV</a>
+      <a href="#">Confidentialité</a>
+    </nav>
+  </div>
+  <div class="wrap footer__bottom">
+    <p>© <span id="year">2026</span> Koacher — Maquette réalisée pour un cas d'école.</p>
+    <p>Fait à Lyon, en courant.</p>
+  </div>
+</footer>
+
+<!-- ============ STICKY MOBILE CTA ============ -->
+<div class="sticky-cta">
+  <div>
+    <strong>1<sup>re</sup> séance 19 €</strong>
+    <span>Sans engagement</span>
+  </div>
+  <a href="#reserver" class="btn btn--accent btn--sm" data-track="cta_sticky">Réserver</a>
+</div>
+</div>
