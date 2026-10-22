@@ -8,6 +8,21 @@ Style repris de la vidéo KOACHER Entreprise (bordeaux `#71001d`, framboise `#d6
   l'écran complet, prêt à être figé dans PowerPoint (« Lire automatiquement », sans boucle).
 - `out/chapitres.txt` : les timecodes de chaque scène dans la vidéo complète.
 
+## PowerPoint
+
+`pptx/KOACHER_E4_ciblage_prospection.pptx` : 20 diapositives, une par scène, chacune étant l'image finale
+de la scène rendue en 3840×2160. Fondu entre les diapositives, texte à dire (avec un minutage) dans les
+notes du présentateur, sections « 01 · L’entreprise » et « 02 · Ciblage & prospection ».
+
+```bash
+node render.js --stills --scale 2     # images 4K dans out/stills@2x
+python3 pptx/to_jpg.py                # conversion en JPEG pour le deck
+node pptx/build.js                    # nécessite pptxgenjs (npm install pptxgenjs)
+python3 pptx/transitions.py pptx/KOACHER_E4_ciblage_prospection.pptx
+```
+
+Les notes et le texte alternatif de chaque diapositive sont dans `pptx/build.js`.
+
 ## Modifier
 
 - Textes et mise en page : `index.html` (une `<section>` par scène, `data-dur` = durée en secondes).

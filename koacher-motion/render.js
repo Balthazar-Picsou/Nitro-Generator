@@ -1,6 +1,7 @@
 // Frame-by-frame renderer: headless Chromium -> PNG frames -> ffmpeg (H.264).
 //   node render.js                 render every scene + the continuous master video
 //   node render.js --stills        one PNG per scene (end-of-scene state) for review
+//   node render.js --stills --scale 2   same, at 3840x2160 (used for the PowerPoint)
 //   node render.js --scenes 3,11   re-render only these scenes (1-based), then re-assemble
 const fs = require('fs');
 const path = require('path');
@@ -16,6 +17,7 @@ const MASTER = path.join(OUT, 'KOACHER_E4_ciblage_prospection.mp4');
 
 const args = process.argv.slice(2);
 const stills = args.includes('--stills');
+const scale = args.includes('--scale') ? +args[args.indexOf('--scale') + 1] : 1;
 const only = args.includes('--scenes') ? args[args.indexOf('--scenes') + 1].split(',').map(n => +n - 1) : null;
 
 function encoder(file) {
@@ -25,8 +27,8 @@ function encoder(file) {
   return { ff, done };
 }
 
-async function openPage(browser) {
-  const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
+async function openPage(browser, dpr = 1) {
+  const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: dpr });
   await page.goto('file://' + path.join(ROOT, 'index.html') + '?t=0');
   await page.evaluate(() => document.fonts.ready);
   return page;
@@ -48,16 +50,17 @@ async function renderRange(page, i, from, to, exit, file) {
 
 (async () => {
   const browser = await chromium.launch({ args: ['--allow-file-access-from-files', '--font-render-hinting=none'] });
-  const probe = await openPage(browser);
+  const probe = await openPage(browser, stills ? scale : 1);
   const scenes = await probe.evaluate(() => window.SCENES);
   const pad = k => String(k + 1).padStart(2, '0');
 
   if (stills) {
-    fs.mkdirSync(path.join(OUT, 'stills'), { recursive: true });
+    const dir = path.join(OUT, scale > 1 ? `stills@${scale}x` : 'stills');
+    fs.mkdirSync(dir, { recursive: true });
     for (let i = 0; i < scenes.length; i++) {
       if (only && !only.includes(i)) continue;
       await probe.evaluate(([i, t]) => window.renderScene(i, t), [i, scenes[i].dur - 0.05]);
-      await probe.screenshot({ path: path.join(OUT, 'stills', `${scenes[i].name}.png`) });
+      await probe.screenshot({ path: path.join(dir, `${scenes[i].name}.png`) });
     }
     await browser.close();
     return;
