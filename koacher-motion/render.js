@@ -60,6 +60,7 @@ async function renderRange(page, i, from, to, exit, file) {
     for (let i = 0; i < scenes.length; i++) {
       if (only && !only.includes(i)) continue;
       await probe.evaluate(([i, t]) => window.renderScene(i, t), [i, scenes[i].dur - 0.05]);
+      await probe.waitForTimeout(250); // let the lens maps decode
       await probe.screenshot({ path: path.join(dir, `${scenes[i].name}.png`) });
     }
     await browser.close();

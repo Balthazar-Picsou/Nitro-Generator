@@ -15,8 +15,11 @@ de la scène rendue en 3840×2160. Fondu entre les diapositives, texte à dire (
 notes du présentateur. Sections : « 01 · L’entreprise » et « 02 · Ciblage & prospection » (phase 1),
 « Phase 3 · Information commerciale » (12 scènes, styles dans `p3.css`), « Clôture ».
 
-Un seul thème pour toutes les diapositives (`theme.css`) : fond clair avec un terrain de padel en
-filigrane et un disque bordeaux, cartes en verre dépoli clair. Le fond est généré par `engine.js`.
+Un seul thème « Liquid Glass » pour toutes les diapositives (`theme.css`) : fond clair avec un terrain
+de padel en filigrane et des sphères 3D bordeaux, panneaux translucides avec liseré lumineux et
+réfraction sur les bords (filtres SVG générés par `engine.js` à la taille de chaque panneau), tuiles
+d'icônes façon app, barre d'onglets flottante (L’entreprise · Ciblage & prospection · Information
+commerciale) et capsule « E4 · Phase 1/3 ».
 
 ```bash
 node render.js --stills --scale 2     # images 4K dans out/stills@2x

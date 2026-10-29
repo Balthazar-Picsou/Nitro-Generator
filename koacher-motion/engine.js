@@ -30,6 +30,58 @@
   };
 
   const stage = document.getElementById('stage');
+  const TABS = [['01', 'building-2', 'L’entreprise'], ['02', 'crosshair', 'Ciblage &amp; prospection'], ['P3', 'database', 'Information commerciale']];
+
+  // ---- liquid glass: a lens displacement map per panel bends the backdrop near its rounded edges ----
+  const SVGNS = 'http://www.w3.org/2000/svg';
+  const lensDefs = document.createElementNS(SVGNS, 'svg');
+  lensDefs.setAttribute('width', '0'); lensDefs.setAttribute('height', '0');
+  lensDefs.style.position = 'absolute';
+  document.body.appendChild(lensDefs);
+  let lensCount = 0;
+  function lensMap(w, h, r, edge) {
+    const c = document.createElement('canvas');
+    c.width = w; c.height = h;
+    const ctx = c.getContext('2d'), img = ctx.createImageData(w, h), d = img.data;
+    for (let y = 0; y < h; y++) {
+      for (let x = 0; x < w; x++) {
+        // outward normal and distance to the rounded-rect border
+        const cx = Math.min(Math.max(x, r), w - r), cy = Math.min(Math.max(y, r), h - r);
+        let nx = x - cx, ny = y - cy, dist;
+        const len = Math.hypot(nx, ny);
+        if (len > 0) { dist = r - len; nx /= len; ny /= len; }
+        else {
+          const m = Math.min(x, w - x, y, h - y);
+          dist = r + m;
+          nx = m === x ? -1 : m === w - x ? 1 : 0;
+          ny = nx ? 0 : (m === y ? -1 : 1);
+        }
+        const k = Math.pow(Math.max(0, 1 - dist / edge), 2);
+        const p = (y * w + x) * 4;
+        d[p] = 128 - nx * 127 * k; d[p + 1] = 128 - ny * 127 * k; d[p + 2] = 128; d[p + 3] = 255;
+      }
+    }
+    ctx.putImageData(img, 0, 0);
+    return c.toDataURL();
+  }
+  function applyLens(el) {
+    const w = Math.round(el.offsetWidth), h = Math.round(el.offsetHeight);
+    if (!w || !h) return;
+    const r = Math.min(parseFloat(getComputedStyle(el).borderTopLeftRadius) || 0, w / 2, h / 2);
+    const edge = Math.max(8, Math.min(30, r, h / 2));
+    const scale = Math.min(46, h * 0.7);
+    const id = 'lens' + lensCount++;
+    const f = document.createElementNS(SVGNS, 'filter');
+    f.setAttribute('id', id);
+    f.setAttribute('x', '0'); f.setAttribute('y', '0'); f.setAttribute('width', '100%'); f.setAttribute('height', '100%');
+    f.setAttribute('color-interpolation-filters', 'sRGB');
+    f.innerHTML = `<feImage href="${lensMap(w, h, r, edge)}" x="0" y="0" width="${w}" height="${h}" preserveAspectRatio="none" result="m"/>` +
+      `<feDisplacementMap in="SourceGraphic" in2="m" scale="${scale}" xChannelSelector="R" yChannelSelector="G"/>`;
+    lensDefs.appendChild(f);
+    const blur = parseFloat((getComputedStyle(el).backdropFilter.match(/blur\(([\d.]+)px\)/) || [0, 18])[1]);
+    el.style.backdropFilter = el.style.webkitBackdropFilter = `url(#${id}) blur(${blur}px) saturate(185%)`;
+  }
+  const LENS_SEL = '.card, .glass, .lane, .seclabel, .tabbar';
   const underlay = document.getElementById('underlay');
 
   // ---- static decoration ----
@@ -52,18 +104,18 @@
     bg.innerHTML = '<svg class="court" viewBox="0 0 2000 1000"><rect x="0" y="0" width="2000" height="1000"/>' +
       '<line class="net" x1="1000" y1="0" x2="1000" y2="1000"/><line x1="305" y1="0" x2="305" y2="1000"/>' +
       '<line x1="1695" y1="0" x2="1695" y2="1000"/><line x1="305" y1="500" x2="1695" y2="500"/></svg>' +
-      '<div class="ring"></div><div class="disc"></div><div class="grain"></div>';
-    s.disc = bg.querySelector('.disc');
+      '<div class="ring"></div><div class="orb big"></div><div class="orb small"></div><div class="grain"></div>';
+    s.disc = bg.querySelector('.orb.big');
     el.prepend(bg);
 
     // chrome
     if (el.dataset.chrome !== 'none') {
-      const [num, txt] = (el.dataset.label || '').split('|');
+      const [num] = (el.dataset.label || '').split('|');
       const ch = document.createElement('div');
       ch.className = 'chrome';
       ch.innerHTML = `<div class="logo"></div>` +
-        (txt ? `<div class="seclabel"><b>${num}</b>${txt}</div>` : num ? `<div class="seclabel">${num}</div>` : '') +
-        `<div class="pill"><div class="tk">${icon('ticket')}</div><div>Le ticket resto du <span>sport &amp; du bien-être</span></div></div>`;
+        `<div class="seclabel"><b>E4</b>BTS NDRC · Phase ${num === 'P3' ? 3 : 1}</div>` +
+        `<div class="tabbar">${TABS.map(([k, ic, t]) => `<div class="tab${k === num ? ' on' : ''}"><i>${icon(ic)}</i>${t}</div>`).join('')}</div>`;
       el.insertBefore(ch, el.querySelector('.content'));
     }
     s.content = el.querySelector('.content');
@@ -142,6 +194,7 @@
   function renderScene(i, lt, exitP = 0) {
     S.forEach((s, j) => { s.el.style.display = j === i ? 'block' : 'none'; });
     const s = S[i];
+    if (!s.lensed) { s.lensed = true; s.el.querySelectorAll(LENS_SEL).forEach(applyLens); }
     s.items.forEach(it => apply(it, lt));
     s.counts.forEach(c => {
       const p = E.expo(prog(lt, c.d, c.dur));
