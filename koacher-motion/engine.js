@@ -46,18 +46,14 @@
     const s = { el, i, dur, start: acc, name: el.dataset.name || `scene_${i + 1}`, theme: el.classList.contains('dark') ? 'dark' : 'light', items: [], counts: [], floats: [], spins: [], hook: el.dataset.hook };
     acc += dur;
 
-    // background
+    // background: padel court line art (20 m x 10 m, net and service lines) + bordeaux disc
     const bg = document.createElement('div');
     bg.className = 'bg';
-    const seed = i * 1.7 + 0.3;
-    s.blobs = [0, 1, 2].map(k => {
-      const b = document.createElement('div');
-      b.className = 'blob' + (k === 1 ? ' b2' : '');
-      const size = [1100, 900, 760][k];
-      Object.assign(b.style, { width: size + 'px', height: size + 'px' });
-      bg.appendChild(b);
-      return { b, size, k, seed: seed + k * 2.1 };
-    });
+    bg.innerHTML = '<svg class="court" viewBox="0 0 2000 1000"><rect x="0" y="0" width="2000" height="1000"/>' +
+      '<line class="net" x1="1000" y1="0" x2="1000" y2="1000"/><line x1="305" y1="0" x2="305" y2="1000"/>' +
+      '<line x1="1695" y1="0" x2="1695" y2="1000"/><line x1="305" y1="500" x2="1695" y2="500"/></svg>' +
+      '<div class="ring"></div><div class="disc"></div><div class="grain"></div>';
+    s.disc = bg.querySelector('.disc');
     el.prepend(bg);
 
     // chrome
@@ -156,11 +152,7 @@
       f.n.style.transform = `translate3d(0,${Math.sin(a) * f.amp}px,0) rotate(${Math.sin(a * 0.8) * f.rot}deg)`;
     });
     s.spins.forEach(sp => { sp.g.setAttribute('transform', `rotate(${lt * sp.sp} 50 50)`); });
-    s.blobs.forEach(({ b, size, k, seed }) => {
-      const cx = [1500, 260, 1100][k] + Math.sin(lt * 0.21 + seed) * 120;
-      const cy = [120, 900, 640][k] + Math.cos(lt * 0.17 + seed * 1.3) * 90;
-      b.style.transform = `translate3d(${cx - size / 2}px,${cy - size / 2}px,0)`;
-    });
+    s.disc.style.transform = `translate3d(${Math.sin(lt * 0.25) * 14}px,${Math.cos(lt * 0.2) * 10}px,0)`;
     if (s.hook && window.HOOKS && HOOKS[s.hook]) HOOKS[s.hook](lt, s.el, s);
 
     // theme change: iris reveal over the previous background

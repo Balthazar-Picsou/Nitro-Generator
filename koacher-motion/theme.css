@@ -1,0 +1,106 @@
+/* ================= Unified theme: one background and one card style for every slide ================= */
+
+/* ---------- background: light base, padel court line art, crisp bordeaux disc ---------- */
+.bg { background: linear-gradient(160deg, #fbf9fa 0%, #f5f0f2 55%, #efe6ea 100%); }
+.bg .court { position: absolute; left: 260px; top: 150px; width: 2400px; height: 1200px; transform: rotate(-12deg); transform-origin: 0 0; overflow: visible; }
+.bg .court * { fill: none; stroke: rgba(113, 0, 29, .085); stroke-width: 2.5; vector-effect: non-scaling-stroke; }
+.bg .court .net { stroke: rgba(113, 0, 29, .13); stroke-dasharray: 2 9; stroke-width: 3; stroke-linecap: round; }
+.bg .disc { position: absolute; width: 820px; height: 820px; right: -250px; bottom: -360px; border-radius: 50%;
+  background: linear-gradient(140deg, #e04a76 0%, #b5174a 32%, #71001d 72%, #4e0014 100%);
+  box-shadow: 0 -30px 80px -20px rgba(113, 0, 29, .35); }
+.bg .disc::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.35), rgba(255,255,255,0) 45%); }
+.bg .ring { position: absolute; width: 1180px; height: 1180px; left: 1170px; top: 440px; border-radius: 50%; box-shadow: inset 0 0 0 2px rgba(113, 0, 29, .1); }
+.bg .grain { position: absolute; inset: 0; opacity: .45; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .44 0 0 0 0 .1 0 0 0 0 .2 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E"); }
+/* opening slides: the disc grows behind the hero */
+.scene.hero .bg .disc { width: 1240px; height: 1240px; right: -360px; bottom: -560px; }
+.scene.hero .bg .ring { width: 1640px; height: 1640px; left: 860px; top: 180px; }
+
+/* ---------- frosted light cards (phase 1 and phase 3 alike) ---------- */
+.card, .card.glass, .lane, .glass { color: var(--ink);
+  background: linear-gradient(150deg, rgba(255,255,255,.86) 0%, rgba(255,255,255,.66) 100%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%); backdrop-filter: blur(24px) saturate(150%);
+  box-shadow: inset 0 1px 0 #fff, inset 0 0 0 1px rgba(255,255,255,.7), 0 30px 60px -30px rgba(113,0,29,.3), 0 2px 6px rgba(113,0,29,.04); }
+.glass::before { background: radial-gradient(110% 55% at 0% 0%, rgba(255,255,255,.55), rgba(255,255,255,0) 55%); }
+.card.bdx, .glass.tint { color: #fff;
+  background: linear-gradient(150deg, rgba(166,22,62,.94) 0%, rgba(113,0,29,.95) 55%, rgba(78,0,20,.97) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.28), 0 30px 60px -26px rgba(113,0,29,.6); }
+.glass.tint::before { background: radial-gradient(110% 55% at 0% 0%, rgba(255,255,255,.16), rgba(255,255,255,0) 55%); }
+.card.ghost { background: rgba(255,255,255,.45); box-shadow: inset 0 0 0 2px rgba(113,0,29,.14); }
+.glass.paper { background: linear-gradient(160deg, rgba(255,255,255,.97), rgba(255,246,249,.92)); }
+.chip { background: rgba(255,255,255,.88); }
+
+/* ---------- phase 3 components on light ---------- */
+.glass .lbl { color: var(--bdx); text-shadow: none; }
+.glass.tint .lbl { color: #ffc2d4; }
+.glass .small, .glass .muted { color: var(--muted); }
+.glass.tint .small { color: rgba(255,255,255,.8); }
+.glass .li { color: var(--ink); }
+.glass .li i { color: var(--bdx); }
+.glass.tint .li { color: #fff; }
+.glass.tint .li i { color: var(--pink2); }
+.gnum { background: linear-gradient(100deg, var(--bdx) 10%, var(--pink) 90%); -webkit-background-clip: text; background-clip: text; }
+.glass.tint .gnum, .simu .gnum, .mseg.me .gnum { background: linear-gradient(100deg, #fff 0%, #ffc2d4 60%, var(--pink2) 100%); -webkit-background-clip: text; background-clip: text; }
+.gdiv { background: linear-gradient(90deg, rgba(113,0,29,.16), rgba(113,0,29,.02)); }
+.glass.tint .gdiv { background: linear-gradient(90deg, rgba(255,255,255,.3), rgba(255,255,255,.04)); }
+.gicon { background: rgba(113,0,29,.08); color: var(--bdx); box-shadow: none; }
+.glass.tint .gicon { background: rgba(255,255,255,.18); color: #fff; }
+.gchip { background: rgba(255,255,255,.88); color: var(--ink); box-shadow: 0 8px 20px -12px rgba(113,0,29,.35), inset 0 0 0 1px rgba(113,0,29,.08); }
+.gchip i { color: var(--bdx); }
+.gchip.hot { background: var(--bdx); color: #fff; }
+.gchip.hot i { color: var(--pink2); }
+.glass.tint .gchip { background: rgba(255,255,255,.16); color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,.25); }
+.glass.tint .gchip i { color: #ffd3e0; }
+.todo.g { border-color: var(--pink); color: var(--pink); }
+.impact.op { background: rgba(31,157,85,.12); color: #17804a; box-shadow: inset 0 0 0 1px rgba(31,157,85,.25); }
+.impact.vi { background: rgba(201,138,18,.14); color: #96660a; box-shadow: inset 0 0 0 1px rgba(201,138,18,.3); }
+.meter b { background: rgba(113,0,29,.12); }
+.meter b.on { box-shadow: none; }
+.glass.tint .meter b { background: rgba(255,255,255,.25); }
+.glass.tint .meter b.on { background: linear-gradient(90deg, #fff, #ffc2d4); }
+.sk2 { background: rgba(113,0,29,.1); }
+.wbar b { color: var(--muted); }
+.wbar span { background: rgba(113,0,29,.15); }
+.agenda > div { background: rgba(113,0,29,.05); box-shadow: inset 0 0 0 1px rgba(113,0,29,.06); color: var(--ink); }
+.agenda i { color: var(--muted); }
+.mseg { background: rgba(255,255,255,.6); box-shadow: inset 0 0 0 1px rgba(113,0,29,.08); }
+.mseg.me { background: linear-gradient(145deg, #c2285a, #8e0b30); color: #fff; box-shadow: 0 20px 44px -22px rgba(113,0,29,.8); }
+.mseg.me .gicon { background: rgba(255,255,255,.2); color: #fff; }
+.kpirow { border-bottom-color: rgba(113,0,29,.1); }
+.pmap { background:
+  linear-gradient(rgba(113,0,29,.12), rgba(113,0,29,.12)) center / 2px 100% no-repeat,
+  linear-gradient(rgba(113,0,29,.12), rgba(113,0,29,.12)) center / 100% 2px no-repeat; }
+.pax { color: var(--muted); }
+.bub > div { background: rgba(255,255,255,.92); color: var(--ink); box-shadow: 0 10px 24px -12px rgba(113,0,29,.4), inset 0 0 0 1px rgba(113,0,29,.08); }
+.bub .dot { background: radial-gradient(circle at 35% 30%, #fff, #e3c9d2 55%, #b58c9b); }
+.bub.me > div { background: linear-gradient(120deg, #d62d5a, #8e0b30); color: #fff; box-shadow: 0 16px 40px -14px rgba(214,45,90,.8); }
+.ctab { box-shadow: inset 0 0 0 1px rgba(113,0,29,.12); }
+.ctab > div { border-bottom-color: rgba(113,0,29,.08); }
+.ctab .hd { color: var(--muted); background: rgba(113,0,29,.04); }
+.ctab .k { color: var(--bdx); background: rgba(214,45,90,.1); }
+.ctab .r { color: var(--ink); }
+.persona { background: rgba(255,255,255,.6); box-shadow: inset 0 0 0 1px rgba(113,0,29,.08); }
+.pfun > div { background: linear-gradient(90deg, rgba(214,45,90,.16), rgba(214,45,90,.03)); box-shadow: inset 0 0 0 1px rgba(113,0,29,.08); }
+.srow { border-bottom-color: rgba(113,0,29,.08); }
+.srow .tagg { color: var(--bdx); background: rgba(214,45,90,.1); }
+.alert { background: rgba(255,255,255,.6); box-shadow: inset 0 0 0 1px rgba(113,0,29,.08); }
+.stars i { color: var(--pink); }
+.glass.tint .stars i { color: #ffc2d4; }
+.press > div { background: rgba(255,255,255,.6); box-shadow: inset 0 1px 0 #fff, inset 0 0 0 1px rgba(113,0,29,.08); color: var(--ink); }
+.reco > div:not(.arrow) { background: rgba(255,255,255,.6); box-shadow: inset 0 0 0 1px rgba(113,0,29,.08); }
+.reco > div.sol { background: linear-gradient(145deg, #c2285a, #8e0b30); color: #fff; }
+.reco .t { color: var(--muted); }
+.reco .arrow { color: var(--pink); }
+.frow { background: rgba(113,0,29,.05); color: var(--ink); }
+.frow i { color: var(--bdx); }
+.frow.dash { box-shadow: inset 0 0 0 2px rgba(214,45,90,.35); color: var(--pink); }
+.frow.dash i { color: var(--pink); }
+.bubble { background: rgba(113,0,29,.06); }
+.bubble.me { background: linear-gradient(120deg, rgba(236,106,144,.4), rgba(214,45,90,.28)); }
+.mt > div { border-bottom-color: rgba(113,0,29,.08); }
+.mt > div.hd { color: var(--muted); }
+.mt .when { background: rgba(214,45,90,.12); color: var(--bdx); }
+.flow-dot { background: var(--pink); }
+.cyc-svg .cyc { stroke: var(--pink); filter: none; }
+.porter-svg path { stroke: rgba(214,45,90,.55); }
+.pbadge { color: #fff; }

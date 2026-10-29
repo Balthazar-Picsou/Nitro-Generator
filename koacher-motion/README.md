@@ -13,7 +13,10 @@ Style repris de la vidéo KOACHER Entreprise (bordeaux `#71001d`, framboise `#d6
 `pptx/KOACHER_E4_ciblage_prospection.pptx` : 32 diapositives, une par scène, chacune étant l'image finale
 de la scène rendue en 3840×2160. Fondu entre les diapositives, texte à dire (avec un minutage) dans les
 notes du présentateur. Sections : « 01 · L’entreprise » et « 02 · Ciblage & prospection » (phase 1),
-« Phase 3 · Information commerciale » (12 scènes en glass UI, styles dans `p3.css`), « Clôture ».
+« Phase 3 · Information commerciale » (12 scènes, styles dans `p3.css`), « Clôture ».
+
+Un seul thème pour toutes les diapositives (`theme.css`) : fond clair avec un terrain de padel en
+filigrane et un disque bordeaux, cartes en verre dépoli clair. Le fond est généré par `engine.js`.
 
 ```bash
 node render.js --stills --scale 2     # images 4K dans out/stills@2x
