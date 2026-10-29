@@ -3,6 +3,7 @@
 //   node render.js --stills        one PNG per scene (end-of-scene state) for review
 //   node render.js --stills --scale 2   same, at 3840x2160 (used for the PowerPoint)
 //   node render.js --scenes 3,11   re-render only these scenes (1-based), then re-assemble
+//   node render.js --page salon.html --stills --scale 2   another scene file, output in out/salon/
 const fs = require('fs');
 const path = require('path');
 const { spawn, execFileSync } = require('child_process');
@@ -12,10 +13,11 @@ const FPS = 30;
 const TAIL = 0.5; // exit transition between scenes, only in the master video
 const WORKERS = 4;
 const ROOT = __dirname;
-const OUT = path.join(ROOT, 'out');
-const MASTER = path.join(OUT, 'KOACHER_E4_ciblage_prospection.mp4');
-
 const args = process.argv.slice(2);
+const PAGE = args.includes('--page') ? args[args.indexOf('--page') + 1] : 'index.html';
+const OUT = PAGE === 'index.html' ? path.join(ROOT, 'out') : path.join(ROOT, 'out', path.basename(PAGE, '.html'));
+const MASTER = path.join(OUT, PAGE === 'index.html' ? 'KOACHER_E4_ciblage_prospection.mp4' : `${path.basename(PAGE, '.html')}.mp4`);
+
 const stills = args.includes('--stills');
 const scale = args.includes('--scale') ? +args[args.indexOf('--scale') + 1] : 1;
 const only = args.includes('--scenes') ? args[args.indexOf('--scenes') + 1].split(',').map(n => +n - 1) : null;
@@ -29,7 +31,7 @@ function encoder(file) {
 
 async function openPage(browser, dpr = 1) {
   const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: dpr });
-  await page.goto('file://' + path.join(ROOT, 'index.html') + '?t=0');
+  await page.goto('file://' + path.join(ROOT, PAGE) + '?t=0');
   await page.evaluate(() => document.fonts.ready);
   return page;
 }

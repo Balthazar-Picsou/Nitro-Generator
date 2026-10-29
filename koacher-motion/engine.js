@@ -30,7 +30,10 @@
   };
 
   const stage = document.getElementById('stage');
-  const TABS = [['01', 'building-2', 'L’entreprise'], ['02', 'crosshair', 'Ciblage &amp; prospection'], ['P3', 'database', 'Information commerciale']];
+  // a page may set window.DECK = { tabs, status(label) } before this script to restyle the chrome
+  const DECK = window.DECK || {};
+  const TABS = DECK.tabs || [['01', 'building-2', 'L’entreprise'], ['02', 'crosshair', 'Ciblage &amp; prospection'], ['P3', 'database', 'Information commerciale']];
+  const STATUS = DECK.status || (num => `<b>E4</b>BTS NDRC · Phase ${num === 'P3' ? 3 : 1}`);
 
   // ---- liquid glass: a lens displacement map per panel bends the backdrop near its rounded edges ----
   const SVGNS = 'http://www.w3.org/2000/svg';
@@ -114,7 +117,7 @@
       const ch = document.createElement('div');
       ch.className = 'chrome';
       ch.innerHTML = `<div class="logo"></div>` +
-        `<div class="seclabel"><b>E4</b>BTS NDRC · Phase ${num === 'P3' ? 3 : 1}</div>` +
+        `<div class="seclabel">${STATUS(num)}</div>` +
         `<div class="tabbar">${TABS.map(([k, ic, t]) => `<div class="tab${k === num ? ' on' : ''}"><i>${icon(ic)}</i>${t}</div>`).join('')}</div>`;
       el.insertBefore(ch, el.querySelector('.content'));
     }
