@@ -98,6 +98,10 @@
   const flowPaths = [...flowSvg.querySelectorAll('.fl')];
   const flowDots = flowPaths.map(() => { const d = h('div', 'flow-dot'); flowSvg.parentNode.appendChild(d); return d; });
 
+  // ---------- 29 : SIC cycle dots ----------
+  const cycPaths = [...document.querySelectorAll('.cyc-svg .cyc')];
+  const cycDots = cycPaths.map(() => { const d = h('div', 'flow-dot'); document.querySelector('.cyc-svg').parentNode.appendChild(d); return d; });
+
   // ---------- 15 : jour J ----------
   document.querySelectorAll('.dstop').forEach(s => s.setAttribute('data-a', `cardin ${0.7 + 0.72 * +s.dataset.k} 0.8`));
 
@@ -199,6 +203,20 @@
       const dot = $('#dl-dot');
       dot.style.left = 251 + 1418 * p + 'px';
       dot.style.opacity = C(P(lt, 0.5, 0.3));
+    },
+
+    cycle(lt) {
+      cycPaths.forEach((p, k) => {
+        const start = +p.dataset.a.split(' ')[1] + 0.7;
+        const t = lt - start;
+        const dot = cycDots[k];
+        if (t < 0) { dot.style.opacity = 0; return; }
+        const f = (t / 1.8) % 1;
+        const pt = p.getPointAtLength(inout(f) * p.getTotalLength());
+        dot.style.left = pt.x + 'px';
+        dot.style.top = pt.y + 'px';
+        dot.style.opacity = Math.sin(f * Math.PI);
+      });
     },
 
     network(lt) {
